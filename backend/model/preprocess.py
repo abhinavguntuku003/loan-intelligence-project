@@ -65,5 +65,5 @@ def preprocess_data(df):
     # Fit only on training data
     X_train = preprocessor.fit_transform(X_train)
     X_test = preprocessor.transform(X_test)
-
+    
     return X_train, X_test, y_train, y_test, preprocessor

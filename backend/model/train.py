@@ -67,5 +67,7 @@ def train():
     print(classification_report(y_test, y_pred_custom))
     print(confusion_matrix(y_test, y_pred_custom))
 
+    
+
 if __name__ == "__main__":
     train() 

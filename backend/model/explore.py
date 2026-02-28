@@ -11,4 +11,4 @@ df = pd.read_csv("../data/raw/loan_data.csv")
 
 df["credit_score"].hist()
 plt.title("Credit Score Distribution")
-plt.show()
+plt.show()  
