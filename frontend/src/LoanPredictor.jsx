@@ -44,7 +44,8 @@ const fields = [
     label: "Spending Ratio (0 - 1)",
     placeholder: "e.g. 0.35",
     prefix: null,
-    type: "number"
+    type: "number",
+    hasInfo: true
   },
   {
   key: "employment_type",
@@ -52,8 +53,8 @@ const fields = [
   type: "select",
   options: [
       { value: "", label: "Select..." },
-      { value: 1, label: "Type 1" },
-      { value: 2, label: "Type 2" }
+      { value: 1, label: "Salaried" },
+      { value: 2, label: "Self-Employed" }
     ]
   }
 ];
@@ -344,6 +345,42 @@ const handleSubmit = async () => {
           font-family: 'DM Mono', monospace;
           text-transform: uppercase;
         }
+        .info-icon {
+          position: relative;
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          background: #00e0ff;
+          color: #000;
+          font-size: 12px;
+          font-weight: bold;
+          text-align: center;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+
+        .tooltip {
+          visibility: hidden;
+          width: 230px;
+          background-color: #111827;
+          color: #fff;
+          text-align: left;
+          border-radius: 6px;
+          padding: 8px;
+          position: absolute;
+          z-index: 10;
+          top: 125%;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 12px;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+
+        .info-icon:hover .tooltip {
+          visibility: visible;
+          opacity: 1;
+        }
 
         .input-wrap {
           position: relative;
@@ -584,7 +621,20 @@ const handleSubmit = async () => {
             <div className="form-grid">
               {fields.map(f => (
                 <div className="field" key={f.key}>
-                  <label>{f.label}</label>
+                  <label style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                  {f.label}
+
+                  {f.hasInfo && (
+                    <span className="info-icon">
+                      i
+                      <span className="tooltip">
+                          Spending Ratio = Monthly expenses ÷ Monthly income.
+                          Example: If you earn ₹50,000 and spend ₹20,000,
+                          your ratio is 0.4. Lower is better.
+                      </span>
+                    </span>
+                    )}
+                  </label>
                   <div className="input-wrap">
                     {f.prefix && <span className="prefix">{f.prefix}</span>}
                     {f.type === "select" ? (
@@ -609,7 +659,7 @@ const handleSubmit = async () => {
               <button className="submit-btn" onClick={handleSubmit} disabled={loading}>
                 {loading ? <><span className="spinner" />ANALYZING...</> : "ANALYZE APPLICATION →"}
               </button>
-              <div className="demo-note">⚡ If backend unavailable, demo mode activates automatically</div>
+              {/* <div className="demo-note">⚡ If backend unavailable, demo mode activates automatically</div> */}
             </div>
           </div>
         ) : (
