@@ -177,7 +177,37 @@ const handleSubmit = async () => {
 
   setLoading(false);
 };
-  const approved = result?.prediction === "Approved";
+  // const approved = result?.prediction === "Approved";
+  const prediction = result?.prediction;
+
+  const decisionConfig = {
+    Approved: {
+      color: "#10b981",
+      bg: "rgba(16,185,129,0.12)",
+      border: "rgba(16,185,129,0.3)",
+      shadow: "rgba(16,185,129,0.15)",
+      icon: "✅",
+      label: "LOAN APPROVED"
+    },
+    "Manual Review": {
+      color: "#f59e0b",
+      bg: "rgba(245,158,11,0.12)",
+      border: "rgba(245,158,11,0.3)",
+      shadow: "rgba(245,158,11,0.15)",
+      icon: "⚠️",
+      label: "UNDER REVIEW"
+    },
+    Rejected: {
+      color: "#ef4444",
+      bg: "rgba(239,68,68,0.12)",
+      border: "rgba(239,68,68,0.3)",
+      shadow: "rgba(239,68,68,0.15)",
+      icon: "❌",
+      label: "LOAN REJECTED"
+    }
+  };
+
+  const currentDecision = decisionConfig[prediction] || decisionConfig.Rejected;
   // const accentColor = result ? (approved ? "#10b981" : "#ef4444") : "#38bdf8";
 
   return (
@@ -669,7 +699,7 @@ const handleSubmit = async () => {
             <div className="section-label">02 / DECISION OUTPUT</div>
 
             {/* Verdict */}
-            <div className="verdict">
+            {/* <div className="verdict">
               <div className="verdict-icon" style={{
                 background: approved ? "rgba(16,185,129,0.12)" : "rgba(239,68,68,0.12)",
                 border: `1px solid ${approved ? "rgba(16,185,129,0.3)" : "rgba(239,68,68,0.3)"}`,
@@ -683,13 +713,33 @@ const handleSubmit = async () => {
                 </h2>
                 <p>Application processed · {new Date().toLocaleString()}</p>
               </div>
+            </div> */}
+            <div className="verdict">
+              <div
+                className="verdict-icon"
+                style={{
+                  background: currentDecision.bg,
+                  border: `1px solid ${currentDecision.border}`,
+                  boxShadow: `0 0 30px ${currentDecision.shadow}`,
+                }}
+              >
+                {currentDecision.icon}
+              </div>
+              
+              <div className="verdict-text">
+                <h2 style={{ color: currentDecision.color }}>
+                  {currentDecision.label}
+                </h2>
+                <p>Application processed · {new Date().toLocaleString()}</p>
+              </div>
             </div>
 
             {/* Metrics */}
             <div className="metrics-row">
               <div className="metric-box">
                 <div className="metric-label">Approval Probability</div>
-                <GaugeArc value={result?.probability} color={approved ? "#10b981" : "#ef4444"} />
+                {/* <GaugeArc value={result?.probability} color={approved ? "#10b981" : "#ef4444"} /> */}
+                <GaugeArc value={result?.probability} color={currentDecision.color} />
               </div>
               <div className="metric-box">
                 <div className="metric-label">Risk Assessment</div>

@@ -31,7 +31,13 @@ def get_prediction(request: LoanRequest):
     try:
         prediction, probability = predict(request)
 
-        decision = "Approved" if prediction == 1 else "Rejected"
+        # Probability-based 3-tier decision logic
+        if probability >= 0.65:
+            decision = "Approved"
+        elif probability >= 0.40:
+            decision = "Manual Review"
+        else:
+            decision = "Rejected"
 
         risk_score = round((1 - probability) * 100)
 
@@ -41,7 +47,7 @@ def get_prediction(request: LoanRequest):
 
         return {
             "prediction": decision,
-            "probability": round(probability * 100),
+            "probability": round(probability * 100, 2),
             "risk_score": risk_score,
             "explanation": [
                 "Debt-to-income ratio evaluated",
