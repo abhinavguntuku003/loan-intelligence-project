@@ -1,5 +1,7 @@
 # loan-prediction-project
-AI Decision Intelligence Platform (Next-Gen Rule + ML Hybrid System)
+AI Decision Intelligence Platform
+An end-to-end full-stack machine learning application that simulates a real-world fintech credit decision engine.
+
 
 AI-Powered Credit Risk Scoring Engine
 
@@ -42,19 +44,10 @@ Dynamic risk scoring implemented with FastAPI + React.
 ![Rejected](docs/screenshots/loan-rejected.png)
 
 ### Architecture Diagram
-!(docs/screenshots/architecture_diagram.png)
+<img width="1536" height="1024" alt="architecture_diagram" src="https://github.com/user-attachments/assets/7389c628-7cd7-412d-babd-e5e31ee6ca32" />
 
-AI-Powered Credit Risk Assessment Platform
+<img width="908" height="471" alt="image" src="https://github.com/user-attachments/assets/95287359-5ffa-4566-be7e-7d1a222464fb" />
 
-An end-to-end full-stack machine learning application that simulates a real-world fintech credit decision engine.
-
-This system evaluates loan applications and classifies them into:
-
-🟢 Approved
-
-🟡 Manual Review
-
-🔴 Rejected
 
 Along with:
 
@@ -69,14 +62,6 @@ Along with:
 Frontend: [Add Your Vercel Link Here]
 Backend API Docs: https://your-backend-url/docs
 
-📸 Screenshots
-📝 Application Form
-
-🟢 Approved Case
-
-🟡 Manual Review Case
-
-🔴 Rejected Case
 
 🏗 System Architecture
 
