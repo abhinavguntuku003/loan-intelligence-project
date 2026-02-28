@@ -144,7 +144,6 @@ export default function LoanPredictor() {
 
 const handleSubmit = async () => {
   setLoading(true);
-  setError(null);
   setResult(null);
 
   try {
@@ -171,7 +170,7 @@ const handleSubmit = async () => {
     setSubmitted(true);
 
   } catch (e) {
-    setError("Backend not reachable");
+    console.error("Backend error:", e);
   }
 
   setLoading(false);
