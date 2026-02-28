@@ -19,6 +19,7 @@ Along with:
 ## 🌐 Live Demo
 
 Frontend: https://loan-intelligence-project.vercel.app
+
 Backend API Docs: https://loan-intelligence-project.onrender.com/docs
 
 ---
@@ -171,24 +172,7 @@ React dynamically updates:
 ---
 
 # 📂 Project Structure
-loan-intelligence/
-│
-├── backend/
-│ ├── app/
-│ │ ├── schemas.py
-│ │ ├── inference.py
-│ │ ├── logger.py
-│ ├── main.py
-│
-├── frontend/
-│ ├── src/
-│ ├── components/
-│
-├── docs/
-│ └── screenshots/
-│
-├── README.md
-
+<img width="875" height="456" alt="image" src="https://github.com/user-attachments/assets/d47b51e7-4111-4a51-8e4f-0c118005b02c" />
 
 ---
 
