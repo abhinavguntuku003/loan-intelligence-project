@@ -40,8 +40,8 @@ Backend API Docs: https://your-backend-link.onrender.com/docs
 ---
 
 # 🏗 System Architecture
+<img width="1536" height="1024" alt="architecture_diagram" src="https://github.com/user-attachments/assets/b506af17-c991-42f8-85f5-78bdb96fae96" />
 
-![Architecture Diagram](docs/screenshots/architecture.png)
 
 ---
 
@@ -81,3 +81,30 @@ Frontend sends:
 
 ```bash
 POST /predict
+```
+### 3️⃣ Backend Processing (FastAPI)
+
+Backend performs
+- Request validation using Pydantic schema
+- Feature preprocessing
+- Scaling & transformation
+- Model inference
+- Probability extraction
+- Spending Ratio
+- Employment Type
+
+### 4️⃣ Decision Engine Logic
+```python
+if probability >= 0.65:
+    decision = "Approved"
+elif probability >= 0.40:
+    decision = "Manual Review"
+else:
+    decision = "Rejected"
+```
+
+### 5️⃣ Risk Score Calculation
+```python
+risk_score = (1 - probability) * 100
+```
+Higher risk score → Higher default risk.
