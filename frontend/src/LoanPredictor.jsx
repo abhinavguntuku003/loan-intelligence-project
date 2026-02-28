@@ -74,7 +74,7 @@ function GaugeArc({ value, color }) {
   const start = toXY(startAngle);
   const end = toXY(endAngle);
   const fill = toXY(fillAngle);
-  const largeArc = pct > 50 ? 1 : 0;
+  // const largeArc = pct > 50 ? 1 : 0;
   const fillLargeArc = (fillAngle - startAngle) > Math.PI ? 1 : 0;
 
   return (
@@ -137,7 +137,7 @@ export default function LoanPredictor() {
   const [form, setForm] = useState({});
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (key, val) => setForm(f => ({ ...f, [key]: val }));
@@ -177,7 +177,7 @@ const handleSubmit = async () => {
   setLoading(false);
 };
   const approved = result?.prediction === "Approved";
-  const accentColor = result ? (approved ? "#10b981" : "#ef4444") : "#38bdf8";
+  // const accentColor = result ? (approved ? "#10b981" : "#ef4444") : "#38bdf8";
 
   return (
     <>
