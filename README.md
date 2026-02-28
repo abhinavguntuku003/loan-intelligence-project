@@ -18,8 +18,8 @@ Along with:
 
 ## 🌐 Live Demo
 
-Frontend: https://your-frontend-link.vercel.app  
-Backend API Docs: https://your-backend-link.onrender.com/docs  
+Frontend: https://loan-intelligence-project.vercel.app
+Backend API Docs: https://loan-intelligence-project.onrender.com/docs
 
 ---
 
@@ -108,3 +108,177 @@ else:
 risk_score = (1 - probability) * 100
 ```
 Higher risk score → Higher default risk.
+
+### 6️⃣ API Response Example
+```json
+{
+  "prediction": "Manual Review",
+  "probability": 57.37,
+  "risk_score": 43,
+  "explanation": [
+    "Debt-to-income ratio evaluated",
+    "Credit score impact assessed",
+    "Loan burden analyzed against income"
+  ]
+}
+```
+### 7️⃣ UI Rendering
+
+React dynamically updates:
+- Verdict color
+- Probability gauge
+- Risk gradient bar
+- Factor explanation
+- Timestamp
+
+# 🛠 Tech Stack
+
+## 🔹 Frontend
+- React.js
+- Custom SVG Gauge Visualization
+- Dynamic Risk Gradient System
+- Real-time API Integration (Fetch API)
+- Modern Fintech-Inspired UI Design
+
+## 🔹 Backend
+- FastAPI
+- Pydantic (Data Validation)
+- Modular Project Structure
+- Structured Logging System
+- RESTful API Design
+
+## 🔹 Machine Learning
+- Scikit-learn Classifier
+- Probability-Based Prediction
+- Feature Preprocessing & Scaling
+- Threshold-Based Decision Engine
+- Risk Score Calculation Logic
+
+## 🔹 Deployment
+- Frontend → Vercel
+- Backend → Render
+
+---
+
+# 📊 Decision Categories
+
+| Category         | Probability Range |
+|-----------------|------------------|
+| 🟢 Approved      | ≥ 65% |
+| 🟡 Manual Review | 40% – 64% |
+| 🔴 Rejected      | < 40% |
+
+---
+
+# 📂 Project Structure
+loan-intelligence/
+│
+├── backend/
+│ ├── app/
+│ │ ├── schemas.py
+│ │ ├── inference.py
+│ │ ├── logger.py
+│ ├── main.py
+│
+├── frontend/
+│ ├── src/
+│ ├── components/
+│
+├── docs/
+│ └── screenshots/
+│
+├── README.md
+
+
+---
+
+# ⚙ Installation (Local Setup)
+
+## Backend Setup
+
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+Access API docs at:
+```bash
+http://localhost:8000/docs
+```
+
+Frontend Setup
+```bash
+cd frontend
+npm install
+npm start
+```
+# 🔄 System Workflow
+
+1. User submits loan details through the React frontend.
+2. Frontend sends a `POST /predict` request to the FastAPI backend.
+3. Backend validates input using Pydantic schemas.
+4. Features are preprocessed and transformed for model compatibility.
+5. The Scikit-learn model predicts approval probability.
+6. A threshold-based decision engine categorizes the application:
+   - 🟢 Approved (≥ 65%)
+   - 🟡 Manual Review (40%–64%)
+   - 🔴 Rejected (< 40%)
+7. Risk score is calculated dynamically:
+    Risk Score = (1 - Probability) × 100
+8. Backend returns a structured JSON response.
+9. Frontend dynamically updates:
+- Verdict (color-coded)
+- Approval Probability Gauge
+- Risk Gradient Bar
+- Factor Analysis Section
+- Timestamp
+
+---
+
+# 🎯 Key Highlights
+
+- Full-stack ML deployment (React + FastAPI)
+- Probability-based credit risk modeling
+- 3-tier decision segmentation (Real-world fintech simulation)
+- Dynamic risk scoring (0–100 scale)
+- Production-style REST API architecture
+- Modular backend structure
+- Modern fintech-inspired dashboard UI
+
+---
+
+# 📈 Model Logic Overview
+
+Instead of simple binary classification, this system uses probability segmentation:
+
+```python
+if probability >= 0.65:
+ decision = "Approved"
+elif probability >= 0.40:
+ decision = "Manual Review"
+else:
+ decision = "Rejected"
+```
+# 🚀 Future Improvements
+
+- SHAP-based feature importance visualization for model explainability  
+- Probability calibration (Platt Scaling / Isotonic Regression)  
+- User authentication & role-based access control  
+- Database integration to store loan applications and history  
+- Admin dashboard for monitoring predictions and analytics  
+- Docker containerization for consistent deployment  
+- CI/CD pipeline automation  
+- Model retraining pipeline for continuous improvement  
+
+---
+
+# 📬 Contact
+
+If you'd like to test your loan approval probability or collaborate:
+
+- LinkedIn: www.linkedin.com/in/abhinav-guntuku 
+- Email: abhinavguntuku2022@gmail.com  
+
+---
+
+⭐ If you found this project interesting, feel free to star the repository!
