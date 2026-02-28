@@ -3,12 +3,24 @@ AI Decision Intelligence Platform (Next-Gen Rule + ML Hybrid System)
 
 AI-Powered Credit Risk Scoring Engine
 
-“This dataset was synthetically generated to simulate credit risk patterns.”
+## 🧠 Model Decision Categories
 
-Scenario	                 Expected Outcome
-High income + high credit	 Approved
-Low income + low credit	     Rejected
-High loan burden	         Rejected
-Low debt + good credit	     Approved
+- 🟢 Approved (≥ 65% probability)
+- 🟡 Manual Review (40%–64%)
+- 🔴 Rejected (< 40%)
 
-If it randomly approves risky profiles → something is wrong.
+Dynamic risk scoring implemented with FastAPI + React.
+
+## 📸 UI Screenshots
+
+### 📝 Application Form
+![Application Form](docs/screenshots/loan-form-ui.png)
+
+### 🟢 Approved Case
+![Approved](docs/screenshots/loan-approved.png)
+
+### 🟡 Manual Review Case
+![Manual Review](docs/screenshots/loan-manual-review.png)
+
+### 🔴 Rejected Case
+![Rejected](docs/screenshots/loan-rejected.png)
