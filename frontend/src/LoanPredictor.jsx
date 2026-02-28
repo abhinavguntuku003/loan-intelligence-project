@@ -372,7 +372,8 @@ const handleSubmit = async () => {
           top: 125%;
           left: 50%;
           transform: translateX(-50%);
-          font-size: 12px;
+          font-size: 10px;
+          font-family: "Times New Roman", Times, serif;
           opacity: 0;
           transition: opacity 0.3s;
         }
