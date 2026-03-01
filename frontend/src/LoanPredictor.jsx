@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { Analytics } from "@vercel/analytics/react"
+
 const API_BASE = "https://loan-intelligence-project.onrender.com"; // FastAPI backend
 // const API_BASE = import.meta.env.VITE_API_BASE;
 
